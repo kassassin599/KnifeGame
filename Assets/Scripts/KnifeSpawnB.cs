@@ -12,8 +12,10 @@ public class KnifeSpawnB : MonoBehaviour
   public GameObject parentObject;
   public TMPro.TextMeshProUGUI CScore;
   public int currScore;
-  public MenuController mc;
+  public SingletonDontDestroyOnLoad mc;
   public GameObject menucont;
+  [SerializeField]
+  public GameObject ResultPanel;
 
   [SerializeField]
   bool isKnifeA;
@@ -27,9 +29,8 @@ public class KnifeSpawnB : MonoBehaviour
   {
     currScore = 0;
     isKnife = true;
-    mustNew = false;
-    menucont = GameObject.Find("MenuController");
-    mc = menucont.GetComponent<MenuController>();
+    mustNew = false; 
+    mc = FindObjectOfType<SingletonDontDestroyOnLoad>();
   }
 
   // Update is called once per frame
@@ -59,12 +60,20 @@ public class KnifeSpawnB : MonoBehaviour
   public void YouLoose()
   {
     Debug.Log("You Lose");
-    if (currScore >= PlayerPrefs.GetInt("Hscore"))
+    if (currScore >= PlayerPrefs.GetInt("HscoreB"))
     {
-      PlayerPrefs.SetInt("Hscore", currScore);
-      Debug.Log("New: " + PlayerPrefs.GetInt("Hscore").ToString());
+      PlayerPrefs.SetInt("HscoreB", currScore);
+      Debug.Log("New: " + PlayerPrefs.GetInt("HscoreB").ToString());
     }
     mc.isLose = true;
+    ResultPanel.SetActive(true);
+    Time.timeScale = 0f;
+  }
+
+  public void LoadMainMenu()
+  {
+    Time.timeScale = 1.0f;
+
     SceneManager.LoadScene("Menu");
   }
 }

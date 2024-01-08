@@ -26,18 +26,18 @@ public class Button : MonoBehaviour
     gameObject.transform.Rotate(new Vector3(0, 0, 0.2f));
 
   }
-  private void OnMouseDown()
-  {
-    if (gameObject.name == "Play")
-    {
-      bannerAd.LoadBanner();
-      bannerAd.ShowBannerAd();
-      SceneManager.LoadScene("Game");
-    }
-    if (gameObject.name == "Restart")
-    {
-      interstitialAd.ShowAd();
-      mc.isLose = false;
-    }
-  }
+  //private void OnMouseDown()
+  //{
+  //  if (gameObject.name == "Play")
+  //  {
+  //    bannerAd.LoadBanner();
+  //    bannerAd.ShowBannerAd();
+  //    SceneManager.LoadScene("Game");
+  //  }
+  //  if (gameObject.name == "Restart")
+  //  {
+  //    interstitialAd.ShowAd();
+  //    mc.isLose = false;
+  //  }
+  //}
 }

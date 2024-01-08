@@ -14,26 +14,26 @@ public class Swicher : MonoBehaviour
   // Use this for initialization
   void Start()
   {
-    highScore.text = PlayerPrefs.GetInt("Hscore").ToString();
-    Debug.Log("Current: " + PlayerPrefs.GetInt("Hscore").ToString());
-    menucont = GameObject.Find("MenuController");
-    mc = menucont.GetComponent<MenuController>();
+    //highScore.text = PlayerPrefs.GetInt("Hscore").ToString();
+    //Debug.Log("Current: " + PlayerPrefs.GetInt("Hscore").ToString());
+    //menucont = GameObject.Find("MenuController");
+    //mc = menucont.GetComponent<MenuController>();
 
   }
 
   // Update is called once per frame
-  void Update()
-  {
-    if (mc.isLose == true)
-    {
-      menuCanvas.gameObject.SetActive(false);
-      loseCanvas.gameObject.SetActive(true);
-    }
-    else
-    {
-      menuCanvas.gameObject.SetActive(true);
-      loseCanvas.gameObject.SetActive(false);
-    }
+  //void Update()
+  //{
+  //  if (mc.isLose == true)
+  //  {
+  //    menuCanvas.gameObject.SetActive(false);
+  //    loseCanvas.gameObject.SetActive(true);
+  //  }
+  //  else
+  //  {
+  //    menuCanvas.gameObject.SetActive(true);
+  //    loseCanvas.gameObject.SetActive(false);
+  //  }
 
-  }
+  //}
 }
