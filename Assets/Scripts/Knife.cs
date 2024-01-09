@@ -20,6 +20,8 @@ public class Knife : MonoBehaviour
   AudioClip ammaBhenAudio;
   [SerializeField]
   AudioSource audioSource;
+  [SerializeField]
+  ParticleSystem bloodParticle;
 
   SingletonDontDestroyOnLoad mc;
 
@@ -80,11 +82,20 @@ public class Knife : MonoBehaviour
       spawn.mustNew = true;
       rb.detectCollisions = false;
 
+      GetComponent<Animator>().SetBool("isStuck", true);
 
       butt = other.gameObject;
       butt.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
 
+      butt.transform.parent.GetComponent<Animator>().SetTrigger("PlayerA");
+
       audioSource.Stop();
+
+      Vector3 contactPos = other.ClosestPoint(transform.position);
+
+      bloodParticle.transform.position = contactPos;
+
+      bloodParticle.Play();
 
       StartCoroutine(ResetColor());
     }
