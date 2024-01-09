@@ -14,6 +14,17 @@ public class Knife : MonoBehaviour
   [SerializeField]
   bool isKnifeA;
 
+  [SerializeField]
+  AudioClip mosquitoAudio;
+  [SerializeField]
+  AudioClip ammaBhenAudio;
+  [SerializeField]
+  AudioSource audioSource;
+
+  SingletonDontDestroyOnLoad mc;
+
+  GameObject butt;
+
   private void OnEnable()
   {
     spawn.KnifeAButton.onClick.AddListener(ButtonClick);
@@ -24,6 +35,13 @@ public class Knife : MonoBehaviour
   {
 
     onBarrel = false;
+
+    mc = FindObjectOfType<SingletonDontDestroyOnLoad>();
+    if (mc.isLose == true) { return; }
+
+    audioSource.clip = mosquitoAudio;
+    audioSource.loop = true;
+    audioSource.Play();
   }
 
   // Update is called once per frame
@@ -44,6 +62,8 @@ public class Knife : MonoBehaviour
   {
     if (onBarrel == false)
     {
+
+      
       if (isKnifeA)
         rb.velocity = new Vector3(0, speed, 0);
     }
@@ -59,12 +79,35 @@ public class Knife : MonoBehaviour
       this.onBarrel = true;
       spawn.mustNew = true;
       rb.detectCollisions = false;
+
+
+      butt = other.gameObject;
+      butt.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.red;
+
+      audioSource.Stop();
+
+      StartCoroutine(ResetColor());
     }
     if (other.tag == "Knife")
     {
       spawn.YouLoose();
+
+      audioSource.clip =ammaBhenAudio; 
+      audioSource.loop = false;
+      audioSource.Play();
     }
   }
+
+  private IEnumerator ResetColor()
+  {
+    // Wait for 1 second
+    yield return new WaitForSeconds(.1f);
+    // Reset the color to white
+    butt.transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.white;
+
+    audioSource.Play();
+  }
+
   private void OnDisable()
   {
     spawn.KnifeAButton.onClick.RemoveListener(ButtonClick);

@@ -16,6 +16,10 @@ public class Knife_Spawn : MonoBehaviour
   public SingletonDontDestroyOnLoad mc;
   [SerializeField]
   public GameObject ResultPanel;
+  [SerializeField]
+  public SpriteRenderer butt;
+  [SerializeField]
+  public Sprite buttWithFace;
 
   [SerializeField]
   bool isKnifeA;
@@ -59,6 +63,8 @@ public class Knife_Spawn : MonoBehaviour
 
   public void YouLoose()
   {
+    butt.sprite = buttWithFace;
+
     Debug.Log("You Lose");
     if (currScore >= PlayerPrefs.GetInt("Hscore"))
     {
@@ -67,6 +73,8 @@ public class Knife_Spawn : MonoBehaviour
     }
     mc.isLose = true;
     ResultPanel.SetActive(true);
-    Time.timeScale = 0f;
+    //Time.timeScale = 0f;
+    butt.transform.parent.GetComponent<Wood_Rotate>().speed = 0;
+
   }
 }

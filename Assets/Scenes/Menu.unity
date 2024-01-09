@@ -1195,8 +1195,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 139, y: 138}
+  m_AnchoredPosition: {x: 0, y: 0.0000076293945}
+  m_SizeDelta: {x: 354.563, y: 374.8533}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1026815148
 MonoBehaviour:
@@ -1553,7 +1553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Macchar Attack
+  m_text: Mosquito Hit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: baa53d66a8f7e3a4c8f92f421e5a0070, type: 2}
   m_sharedMaterial: {fileID: -1080608796867716671, guid: baa53d66a8f7e3a4c8f92f421e5a0070,
@@ -1563,8 +1563,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287299328
-  m_fontColor: {r: 0, g: 1, b: 0.5411823, a: 1}
+    rgba: 4283957461
+  m_fontColor: {r: 0.8352941, g: 0, b: 0.34528545, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1871,8 +1871,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287299328
-  m_fontColor: {r: 0, g: 1, b: 0.5411823, a: 1}
+    rgba: 4284022997
+  m_fontColor: {r: 0.8352941, g: 0, b: 0.34901962, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

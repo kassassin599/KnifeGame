@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class KnifeSpawnB : MonoBehaviour
 {
@@ -16,6 +17,10 @@ public class KnifeSpawnB : MonoBehaviour
   public GameObject menucont;
   [SerializeField]
   public GameObject ResultPanel;
+  [SerializeField]
+  public SpriteRenderer butt;
+  [SerializeField]
+  public Sprite buttWithFace;
 
   [SerializeField]
   bool isKnifeA;
@@ -59,6 +64,8 @@ public class KnifeSpawnB : MonoBehaviour
 
   public void YouLoose()
   {
+    butt.sprite = buttWithFace;
+
     Debug.Log("You Lose");
     if (currScore >= PlayerPrefs.GetInt("HscoreB"))
     {
@@ -67,7 +74,8 @@ public class KnifeSpawnB : MonoBehaviour
     }
     mc.isLose = true;
     ResultPanel.SetActive(true);
-    Time.timeScale = 0f;
+    butt.transform.parent.GetComponent<Wood_Rotate>().speed = 0;
+    //Time.timeScale = 0f;
   }
 
   public void LoadMainMenu()
